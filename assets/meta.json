@@ -1,0 +1,39 @@
+{
+ "n": 19012,
+ "descSize": 61,
+ "mapSize": [
+  2400,
+  2400
+ ],
+ "detector": "akaze",
+ "akazeThreshold": 0.0004,
+ "upscale": 2.0,
+ "minimap": {
+  "x": 0.02,
+  "y": 0.7,
+  "w": 0.1575,
+  "h": 0.28,
+  "shape": "circle"
+ },
+ "playerMask": 0.12,
+ "edgeMask": 0.94,
+ "ratioGlobal": 0.75,
+ "ratioLocal": 0.85,
+ "minInliersGlobal": 10,
+ "minInliersLocal": 7,
+ "minConfidence": 0.25,
+ "searchRadius": 350,
+ "scaleRange": [
+  0.4,
+  4.0
+ ],
+ "ransacThresh": 4.0,
+ "maxSpeed": 450,
+ "smooth": 0.85,
+ "lostAfter": 2,
+ "trackFps": 5,
+ "grid": 6,
+ "metersPerPx": 1.0,
+ "synthetic": true,
+ "demo": "assets/demo.mp4"
+}
