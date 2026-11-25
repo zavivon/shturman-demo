@@ -1,12 +1,16 @@
 {
- "n": 19012,
+ "n": 30960,
  "descSize": 61,
  "mapSize": [
   2400,
   2400
  ],
  "detector": "akaze",
- "akazeThreshold": 0.0004,
+ "akazeThreshold": 0.0002,
+ "clahe": [
+  3.0,
+  4
+ ],
  "upscale": 2.0,
  "minimap": {
   "x": 0.02,
@@ -34,6 +38,34 @@
  "trackFps": 5,
  "grid": 6,
  "metersPerPx": 1.0,
+ "dataset": "synthetic",
  "synthetic": true,
+ "types": [
+  {
+   "key": "quest",
+   "label": "Задания",
+   "icon": "quest"
+  },
+  {
+   "key": "car",
+   "label": "Редкие машины",
+   "icon": "car"
+  },
+  {
+   "key": "shop",
+   "label": "Магазины",
+   "icon": "shop"
+  },
+  {
+   "key": "stash",
+   "label": "Тайники",
+   "icon": "stash"
+  },
+  {
+   "key": "fence",
+   "label": "Скупщики",
+   "icon": "fence"
+  }
+ ],
  "demo": "assets/demo.mp4"
 }

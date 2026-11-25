@@ -65,6 +65,7 @@ export class Locator {
     this.akaze = new cv.AKAZE();
     this.akaze.setThreshold(meta.akazeThreshold);
     this.bf = new cv.BFMatcher(cv.NORM_HAMMING, false);
+    this.clahe = meta.clahe && cv.CLAHE ? new cv.CLAHE(meta.clahe[0], new cv.Size(meta.clahe[1], meta.clahe[1])) : null;
     this.mask = null;
     this.timing = {};
   }
@@ -86,8 +87,9 @@ export class Locator {
   }
 
   // rgba: cv.Mat мини-карты (RGBA). lastPos: [x, y] на карте или null. Возвращает позицию или null.
-  locate(rgba, lastPos = null, limit = 600) {
+  locate(rgba, lastPos = null, limit = 900) {
     const cv = this.cv, m = this.m, w = rgba.cols, h = rgba.rows, up = m.upscale;
+    if (!lastPos) limit = Math.min(limit, 500);   // поиск по всей карте дорогой: берём меньше точек запроса
     const t0 = performance.now();
     const gray = new cv.Mat(), big = new cv.Mat(), kp = new cv.KeyPointVector(), des = new cv.Mat();
     let sub = null, matches = null;
@@ -106,6 +108,7 @@ export class Locator {
       for (let i = 255; i >= 0; i--) { acc += hist[i]; if (acc >= cnt * 0.01) { hi = i; break; } }
       const a = 255 / Math.max(hi - lo, 8);
       gray.convertTo(gray, cv.CV_8U, a, -lo * a);
+      if (this.clahe) this.clahe.apply(gray, gray);   // локальный контраст: бледная карта, яркие значки
       cv.resize(gray, big, new cv.Size(w * up, h * up), 0, 0, cv.INTER_CUBIC);
       this.akaze.detectAndCompute(big, this._mask(w, h), kp, des);
       const nk = kp.size();

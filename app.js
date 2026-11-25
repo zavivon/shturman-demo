@@ -2,12 +2,15 @@ import { Locator, Tracker } from './locate.js';
 
 const OPENCV_URL = 'https://docs.opencv.org/4.10.0/opencv.js';
 const CW = 1920, CH = 1080;                       // условный размер экрана телевизора после выпрямления
-const TYPES = { quest: 'Задания', car: 'Редкие машины', shop: 'Магазины', stash: 'Тайники', fence: 'Скупщики' };
+const DATA = new URLSearchParams(location.search).get('data');        // ?data=gtadb — другой набор данных
+const BASE = DATA && /^[a-z0-9_-]+$/i.test(DATA) ? `assets-${DATA}/` : 'assets/';
+let TYPES = { quest: 'Задания', car: 'Редкие машины', shop: 'Магазины', stash: 'Тайники', fence: 'Скупщики' };
+let ICONS = { quest: 'quest', car: 'car', shop: 'shop', stash: 'stash', fence: 'fence' };
 const $ = id => document.getElementById(id);
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const store = {
-  get(k, d) { try { const v = localStorage.getItem('nav.' + k); return v ? JSON.parse(v) : d; } catch { return d; } },
-  set(k, v) { try { localStorage.setItem('nav.' + k, JSON.stringify(v)); } catch { /* приватный режим */ } },
+  get(k, d) { try { const v = localStorage.getItem('nav.' + (DATA || '') + '.' + k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem('nav.' + (DATA || '') + '.' + k, JSON.stringify(v)); } catch { /* приватный режим */ } },
 };
 
 const S = {
@@ -18,7 +21,7 @@ const S = {
   pos: null, hdg: 0, status: 'lost', lastSeen: -1e9, lastGrab: 0, grabTime: 0, trail: [],
   full: { x: 0, y: 0, z: 1 }, follow: false,
   found: new Set(store.get('found', [])), hidden: new Set(store.get('hidden', [])),
-  filters: store.get('filters', { types: Object.fromEntries(Object.keys(TYPES).map(t => [t, true])), noSpoilers: false }),
+  filters: store.get('filters', { types: {}, noSpoilers: false }),
   voice: store.get('voice', false), lastSpoke: 0, spoken: new Set(), selected: null, cardId: null,
   stats: [],
 };
@@ -46,21 +49,24 @@ function loadCV() {
 async function init() {
   try {
     const [meta, buf, pois] = await Promise.all([
-      fetch('assets/meta.json').then(r => r.json()),
-      fetch('assets/features.bin').then(r => r.arrayBuffer()),
-      fetch('assets/pois.json').then(r => r.json()),
+      fetch(BASE + 'meta.json').then(r => r.json()),
+      fetch(BASE + 'features.bin').then(r => r.arrayBuffer()),
+      fetch(BASE + 'pois.json').then(r => r.json()),
       loadCV(),
     ]);
     S.meta = meta; S.pois = pois;
+    if (meta.types) { TYPES = Object.fromEntries(meta.types.map(t => [t.key, t.label])); ICONS = Object.fromEntries(meta.types.map(t => [t.key, t.icon])); }
+    for (const t of Object.keys(TYPES)) if (!(t in S.filters.types)) S.filters.types[t] = true;
+    if (meta.attribution) $('credit').textContent = meta.attribution;
     S.locator = new Locator(S.cv, meta, buf);
     S.tracker = new Tracker(S.locator);
     S.rect = { x: Math.round(meta.minimap.x * CW), y: Math.round(meta.minimap.y * CH), w: Math.round(meta.minimap.w * CW), h: Math.round(meta.minimap.h * CH) };
     if (meta.demo) {
-      S.truth = await fetch('assets/demo_truth.json').then(r => r.json()).catch(() => null);
+      S.truth = await fetch(BASE + 'demo_truth.json').then(r => r.json()).catch(() => null);
       $('btn-demo').hidden = false;
     }
     buildMap(); buildSheets();
-    $('loadmsg').textContent = meta.synthetic ? 'Тестовая карта: выдуманный город, не игра.' : '';
+    $('loadmsg').textContent = meta.synthetic ? 'Тестовая карта: выдуманный город, не игра.' : 'Набор данных: ' + (meta.dataset || 'свой');
     $('btn-camera').disabled = false; $('btn-demo').disabled = false;
     if (new URLSearchParams(location.search).has('demo') && meta.demo) startSource('demo');
   } catch (e) {
@@ -163,7 +169,7 @@ function grabMinimap() {
   const bw = x1 - x0, bh = y1 - y0;
   if (bw < 24 || bh < 24) return null;
   grab.width = bw; grab.height = bh;
-  S.grabTime = video.currentTime;
+  S.grabTime = S.frameTime ?? video.currentTime;   // время именно того кадра, который сейчас на экране
   gctx.drawImage(video, x0, y0, bw, bh, 0, 0, bw, bh);     // читаем только кусок кадра с мини-картой
   const sub = cv.matFromImageData(gctx.getImageData(0, 0, bw, bh));
   const M = mul3([1, 0, -x0, 0, 1, -y0, 0, 0, 1], mul3(h, [1, 0, r.x, 0, 1, r.y, 0, 0, 1]));   // пиксель мини-карты -> пиксель куска
@@ -197,7 +203,7 @@ function loop() {
       }
     }
   } catch (e) { console.error(e); }
-  setTimeout(loop, Math.max(10, period - (performance.now() - t0)));
+  setTimeout(loop, Math.max(40, period - (performance.now() - t0)));   // пауза нужна, чтобы браузер успел показать новый кадр видео
 }
 
 function onResult(status, loc, ms) {
@@ -222,14 +228,14 @@ function onResult(status, loc, ms) {
 function buildMap() {
   const [W, H] = S.meta.mapSize;
   layer.style.width = W + 'px'; layer.style.height = H + 'px';
-  const img = $('mapimg'); img.width = W; img.height = H; img.src = 'assets/map.svg';
+  const img = $('mapimg'); img.width = W; img.height = H; img.src = BASE + 'map.svg';
   $('trail').setAttribute('width', W); $('trail').setAttribute('height', H);
   const box = $('pois');
   for (const p of S.pois) {
     const el = document.createElement('div');
     el.className = 'poi'; el.dataset.id = p.id;
     el.style.left = p.x + 'px'; el.style.top = p.y + 'px';
-    el.innerHTML = `<svg><use href="#i-${p.type}"/></svg>`;
+    el.innerHTML = `<svg><use href="#i-${ICONS[p.type] || 'sight'}"/></svg>`;
     box.appendChild(el); p.el = el;
   }
   refreshMarkers();
@@ -306,7 +312,7 @@ function updateCard() {
   if (S.cardId !== p.id) {
     S.cardId = p.id;
     $('card-title').textContent = p.title; $('card-note').textContent = p.note;
-    $('card-ico').setAttribute('href', '#i-' + p.type);
+    $('card-ico').setAttribute('href', '#i-' + (ICONS[p.type] || 'sight'));
   }
   if (S.pos) {
     const d = Math.hypot(p.x - S.pos[0], p.y - S.pos[1]), dir = direction(p);
@@ -339,7 +345,7 @@ function buildSheets() {
   const box = $('type-toggles');
   for (const [t, name] of Object.entries(TYPES)) {
     const b = document.createElement('button');
-    b.innerHTML = `<svg><use href="#i-${t}"/></svg>${name}`;
+    b.innerHTML = `<svg><use href="#i-${ICONS[t] || 'sight'}"/></svg>${name}`;
     b.classList.toggle('on', !!S.filters.types[t]);
     b.onclick = () => { S.filters.types[t] = !S.filters.types[t]; b.classList.toggle('on', S.filters.types[t]); saveFilters(); };
     box.appendChild(b);
@@ -442,5 +448,10 @@ async function keepAwake() { try { S.wakeLock = await navigator.wakeLock?.reques
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && S.phase === 'run') keepAwake(); });
 addEventListener('resize', () => { if (S.phase === 'setup') layoutStage(); else if (S.phase === 'run') { if (S.mode === 'full' && !S.follow) fitFull(); render(); } });
 video.addEventListener('loadedmetadata', () => { if (S.phase === 'setup') layoutStage(); });
+if (video.requestVideoFrameCallback) {   // точное время показанного кадра: нужно для сверки с истиной в демо
+  const onFrame = (now, m) => { S.frameTime = m.mediaTime; video.requestVideoFrameCallback(onFrame); };
+  video.requestVideoFrameCallback(onFrame);
+}
 
+S.debug = { grabMinimap };   // для проверок из консоли
 init();
