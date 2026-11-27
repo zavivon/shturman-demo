@@ -1,5 +1,5 @@
 import { Locator, Tracker } from './locate.js';
-import { PhotoLocator } from './photo.js?v=3';
+import { PhotoLocator } from './photo.js?v=4';
 
 const OPENCV_URL = 'https://docs.opencv.org/4.13.0/opencv.js';
 const CW = 1920, CH = 1080;                       // условный размер экрана телевизора после выпрямления
@@ -301,8 +301,25 @@ function setupPhotoUI() {
   $('intro').textContent = 'Открой в игре большую карту (2D-вид) и сфотографируй экран. Покажу, где ты и что есть рядом.';
   $('btn-camera').textContent = 'Сфотографировать карту';
   $('btn-gallery').hidden = false;
-  for (const id of ['btn-mode', 'btn-voice', 'btn-setup', 'card']) $(id).hidden = true;
-  for (const id of ['btn-photo', 'btn-fix', 'btn-me', 'nearby']) $(id).hidden = false;
+  for (const id of ['btn-mode', 'btn-voice', 'btn-setup', 'btn-filters', 'card']) $(id).hidden = true;
+  for (const id of ['btn-photo', 'btn-fix', 'btn-me', 'chips', 'nearby']) $(id).hidden = false;
+  // категории включаются по одной кнопками над списком; при первом запуске все выключены
+  const saved = store.get('cats', {});
+  for (const t of Object.keys(TYPES)) S.filters.types[t] = !!saved[t];
+  S.filters.noSpoilers = false;
+  for (const [t, name] of Object.entries(TYPES)) {
+    const b = document.createElement('button');
+    b.innerHTML = `<svg><use href="#i-${ICONS[t] || 'sight'}"/></svg>${name} <small>${S.pois.filter(p => p.type === t).length}</small>`;
+    b.classList.toggle('on', S.filters.types[t]);
+    b.onclick = () => {
+      S.filters.types[t] = !S.filters.types[t]; b.classList.toggle('on', S.filters.types[t]);
+      store.set('cats', S.filters.types);
+      if (S.selected != null && !shown(S.pois.find(q => q.id === S.selected))) S.selected = null;
+      refreshMarkers(); render();
+    };
+    $('chips').appendChild(b);
+  }
+  refreshMarkers();
   me.classList.add('dot');
   $('main').classList.add('photo');
   for (const id of ['file-cam', 'file-pick']) $(id).onchange = e => { const f = e.target.files[0]; e.target.value = ''; onPhotoFile(f); };
@@ -400,7 +417,7 @@ function updateNearby() {
       `<div class="body"><div class="t">${esc(p.title)}</div><div class="n">${esc(TYPES[p.type] || '')} · ${esc(p.note)}</div></div>` +
       `<div class="d">${fmtDist(d)}<small>${dir}</small></div><button>Был тут</button></div>`;
   });
-  box.innerHTML = `<h3>${top.length ? 'Рядом с тобой' : 'Рядом ничего нет: проверь фильтры'}</h3>` + rows.join('');
+  box.innerHTML = `<h3>${top.length ? 'Рядом с тобой' : Object.values(S.filters.types).some(Boolean) ? 'В этих категориях рядом ничего нет' : 'Выбери выше, что показать на карте'}</h3>` + rows.join('');
 }
 
 // ---------- карточка и подсказки ----------
