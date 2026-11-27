@@ -1,0 +1,7 @@
+Map geometry and landmarks derived from:
+GTA VI Map Tiles (CC BY 4.0) — https://map.gtadb.org
+GTA VI Landmarks Data (CC BY 4.0) — https://map.gtadb.org
+Copyright (C) 2025-2026 GTADB.ORG and contributors
+License: https://creativecommons.org/licenses/by/4.0/
+Changes: tiles stitched and cropped to one district; map redrawn as an original vector map;
+landmarks filtered and regrouped into own categories.

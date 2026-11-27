@@ -1,9 +1,11 @@
 import { Locator, Tracker } from './locate.js';
+import { PhotoLocator } from './photo.js?v=3';
 
-const OPENCV_URL = 'https://docs.opencv.org/4.10.0/opencv.js';
+const OPENCV_URL = 'https://docs.opencv.org/4.13.0/opencv.js';
 const CW = 1920, CH = 1080;                       // условный размер экрана телевизора после выпрямления
-const DATA = new URLSearchParams(location.search).get('data');        // ?data=gtadb — другой набор данных
-const BASE = DATA && /^[a-z0-9_-]+$/i.test(DATA) ? `assets-${DATA}/` : 'assets/';
+const QS = new URLSearchParams(location.search);
+const DATA = QS.get('data') || (QS.has('demo') ? 'synthetic' : 'city');   // по умолчанию город и режим «фото карты»; ?data=synthetic или ?demo=1 — выдуманный город
+const BASE = DATA !== 'synthetic' && /^[a-z0-9_-]+$/i.test(DATA) ? `assets-${DATA}/` : 'assets/';
 let TYPES = { quest: 'Задания', car: 'Редкие машины', shop: 'Магазины', stash: 'Тайники', fence: 'Скупщики' };
 let ICONS = { quest: 'quest', car: 'car', shop: 'shop', stash: 'stash', fence: 'fence' };
 const $ = id => document.getElementById(id);
@@ -58,16 +60,22 @@ async function init() {
     if (meta.types) { TYPES = Object.fromEntries(meta.types.map(t => [t.key, t.label])); ICONS = Object.fromEntries(meta.types.map(t => [t.key, t.icon])); }
     for (const t of Object.keys(TYPES)) if (!(t in S.filters.types)) S.filters.types[t] = true;
     if (meta.attribution) $('credit').textContent = meta.attribution;
-    S.locator = new Locator(S.cv, meta, buf);
-    S.tracker = new Tracker(S.locator);
-    S.rect = { x: Math.round(meta.minimap.x * CW), y: Math.round(meta.minimap.y * CH), w: Math.round(meta.minimap.w * CW), h: Math.round(meta.minimap.h * CH) };
+    if (meta.mode === 'photo') {
+      S.photoMode = true;
+      S.photo = new PhotoLocator(S.cv, meta, buf);
+    } else {
+      S.locator = new Locator(S.cv, meta, buf);
+      S.tracker = new Tracker(S.locator);
+      S.rect = { x: Math.round(meta.minimap.x * CW), y: Math.round(meta.minimap.y * CH), w: Math.round(meta.minimap.w * CW), h: Math.round(meta.minimap.h * CH) };
+    }
     if (meta.demo) {
       S.truth = await fetch(BASE + 'demo_truth.json').then(r => r.json()).catch(() => null);
       $('btn-demo').hidden = false;
     }
     buildMap(); buildSheets();
-    $('loadmsg').textContent = meta.synthetic ? 'Тестовая карта: выдуманный город, не игра.' : 'Набор данных: ' + (meta.dataset || 'свой');
-    $('btn-camera').disabled = false; $('btn-demo').disabled = false;
+    if (S.photoMode) setupPhotoUI();
+    $('loadmsg').textContent = S.photoMode ? '' : meta.synthetic ? 'Тестовая карта: выдуманный город, не игра.' : 'Набор данных: ' + (meta.dataset || 'свой');
+    $('btn-camera').disabled = false; $('btn-demo').disabled = false; $('btn-gallery').disabled = false;
     if (new URLSearchParams(location.search).has('demo') && meta.demo) startSource('demo');
   } catch (e) {
     console.error(e);
@@ -277,10 +285,122 @@ function render() {
   me.classList.toggle('lost', S.status === 'lost');
   $('trail').firstElementChild.setAttribute('points', S.trail.map(q => q[0].toFixed(0) + ',' + q[1].toFixed(0)).join(' '));
 
+  if (S.photoMode) { updateNearby(); return; }
   const st = $('status'), since = performance.now() - S.lastSeen;
   st.className = S.status !== 'lost' ? 'ok' : since < 4000 ? '' : 'bad';
   st.lastElementChild.textContent = S.status !== 'lost' ? 'Вижу карту' : since < 4000 ? 'Ищу…' : 'Не вижу мини-карту';
   updateCard();
+}
+
+// ---------- режим «фото большой карты» ----------
+const COMPASS = ['север', 'северо-восток', 'восток', 'юго-восток', 'юг', 'юго-запад', 'запад', 'северо-запад'];
+const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const photoCanvas = document.createElement('canvas');
+
+function setupPhotoUI() {
+  $('intro').textContent = 'Открой в игре большую карту (2D-вид) и сфотографируй экран. Покажу, где ты и что есть рядом.';
+  $('btn-camera').textContent = 'Сфотографировать карту';
+  $('btn-gallery').hidden = false;
+  for (const id of ['btn-mode', 'btn-voice', 'btn-setup', 'card']) $(id).hidden = true;
+  for (const id of ['btn-photo', 'btn-fix', 'btn-me', 'nearby']) $(id).hidden = false;
+  me.classList.add('dot');
+  $('main').classList.add('photo');
+  for (const id of ['file-cam', 'file-pick']) $(id).onchange = e => { const f = e.target.files[0]; e.target.value = ''; onPhotoFile(f); };
+  $('btn-gallery').onclick = () => $('file-pick').click();
+  $('btn-photo').onclick = () => $('file-cam').click();
+  $('btn-fix').onclick = openFix;
+  $('fixcanvas').addEventListener('pointerdown', e => {
+    const c = $('fixcanvas'), r = c.getBoundingClientRect(), res = S.photoRes;
+    if (!res) return;
+    res.photo = [(e.clientX - r.left) / r.width * photoCanvas.width, (e.clientY - r.top) / r.height * photoCanvas.height];
+    [res.x, res.y] = applyH(res.h, res.photo[0], res.photo[1]);
+    res.marker = true;
+    placePlayer(res); drawFix();
+  });
+  $('nearby').addEventListener('click', e => {
+    const row = e.target.closest('.near');
+    if (!row) return;
+    const p = S.pois.find(q => String(q.id) === row.dataset.id);
+    if (!p) return;
+    if (e.target.closest('button')) { S.found.add(p.id); store.set('found', [...S.found]); if (S.selected === p.id) S.selected = null; }
+    else {
+      S.selected = p.id; S.follow = false;
+      S.full.x = mapview.clientWidth / 2 - p.x * S.full.z; S.full.y = mapview.clientHeight / 2 - p.y * S.full.z;
+    }
+    refreshMarkers(); render();
+  });
+}
+
+function message(text) { $('msg-text').textContent = text; $('sheet-msg').hidden = false; }
+
+async function onPhotoFile(file) {
+  if (!file) return;
+  $('busy').hidden = false;
+  try {
+    const bmp = await createImageBitmap(file, { imageOrientation: 'from-image' }).catch(() => createImageBitmap(file));
+    await runPhoto(bmp);
+  } catch (e) {
+    console.error(e);
+    message('Не получилось открыть фото: ' + e.message);
+  } finally { $('busy').hidden = true; }
+}
+
+async function runPhoto(src) {   // src: ImageBitmap или загруженный <img>
+  const w0 = src.width, h0 = src.height, k = Math.min(1, 2 * S.meta.photo.side / Math.max(w0, h0));
+  photoCanvas.width = Math.round(w0 * k); photoCanvas.height = Math.round(h0 * k);
+  photoCanvas.getContext('2d', { willReadFrequently: true }).drawImage(src, 0, 0, photoCanvas.width, photoCanvas.height);
+  await new Promise(r => setTimeout(r, 60));   // дать браузеру показать «Распознаю карту…»
+  const res = S.photo.locate(photoCanvas);
+  S.photoRes = res; S.photoLog = S.photo.log;
+  if (!res) {
+    message(S.photoLog.some(s => s.reject === 'shape')
+      ? 'Карта на фото наклонена. Включи в настройках игры 2D-вид карты и снимай экран прямо, не сбоку.'
+      : 'Не узнал карту на этом фото. Нужна большая карта в 2D-виде: сними экран целиком, ровно и без бликов. Работает пока только в городе.');
+    return null;
+  }
+  S.phase = 'run'; S.mode = 'full'; S.selected = null;
+  $('welcome').hidden = true; $('main').hidden = false;
+  S.full.z = clamp(mapview.clientWidth / 900, 0.3, 2);   // в ширину экрана около 900 метров
+  placePlayer(res);
+  if (!res.marker) openFix();
+  return res;
+}
+
+function placePlayer(res) {
+  S.pos = [res.x, res.y]; S.hdg = 0; S.status = 'track'; S.follow = true; S.nearKey = '';
+  const st = $('status');
+  st.className = res.marker ? 'ok' : '';
+  st.lastElementChild.textContent = res.marker ? 'Ты здесь' : 'Уточни, где ты';
+  render();
+}
+
+function openFix() { if (S.photoRes) { $('sheet-fix').hidden = false; drawFix(); } }
+function drawFix() {
+  const c = $('fixcanvas'), res = S.photoRes, k = Math.min(1, 1100 / photoCanvas.width);
+  c.width = Math.round(photoCanvas.width * k); c.height = Math.round(photoCanvas.height * k);
+  const g = c.getContext('2d');
+  g.drawImage(photoCanvas, 0, 0, c.width, c.height);
+  g.strokeStyle = '#ff3d9a'; g.lineWidth = 5;
+  g.beginPath(); g.arc(res.photo[0] * k, res.photo[1] * k, 26, 0, 7); g.stroke();
+}
+
+function updateNearby() {
+  const box = $('nearby');
+  if (!S.pos) return;
+  const key = S.pos.join() + '|' + S.selected + '|' + S.found.size + '|' + S.hidden.size + '|' + JSON.stringify(S.filters);
+  if (key === S.nearKey) return;
+  S.nearKey = key;
+  const list = S.pois.filter(p => shown(p) && !S.found.has(p.id)).map(p => ({ p, d: Math.hypot(p.x - S.pos[0], p.y - S.pos[1]) })).sort((a, b) => a.d - b.d);
+  const seen = new Set(), uniq = list.filter(o => { const k = o.p.type + '|' + o.p.title; if (seen.has(k)) return false; seen.add(k); return true; });   // одинаковые названия (остановки) — только ближайшая
+  const top = uniq.slice(0, 12), sel = list.find(o => o.p.id === S.selected);
+  if (sel && !top.includes(sel)) top.unshift(sel);
+  const rows = top.map(({ p, d }) => {
+    const dir = COMPASS[Math.round(((Math.atan2(p.x - S.pos[0], -(p.y - S.pos[1])) * 180 / Math.PI + 360) % 360) / 45) % 8];
+    return `<div class="near${p.id === S.selected ? ' sel' : ''}" data-id="${esc(p.id)}"><div class="ico"><svg><use href="#i-${ICONS[p.type] || 'sight'}"/></svg></div>` +
+      `<div class="body"><div class="t">${esc(p.title)}</div><div class="n">${esc(TYPES[p.type] || '')} · ${esc(p.note)}</div></div>` +
+      `<div class="d">${fmtDist(d)}<small>${dir}</small></div><button>Был тут</button></div>`;
+  });
+  box.innerHTML = `<h3>${top.length ? 'Рядом с тобой' : 'Рядом ничего нет: проверь фильтры'}</h3>` + rows.join('');
 }
 
 // ---------- карточка и подсказки ----------
@@ -375,7 +495,7 @@ function showProgress() {
 }
 
 // ---------- кнопки и жесты ----------
-$('btn-camera').onclick = () => startSource('camera');
+$('btn-camera').onclick = () => S.photoMode ? $('file-cam').click() : startSource('camera');
 $('btn-demo').onclick = () => startSource('demo');
 $('btn-start').onclick = () => {
   S.phase = 'run'; S.tracker.reset(); S.lastGrab = performance.now(); S.stats = [];
@@ -432,7 +552,7 @@ const endPtr = e => {
   if (!ptrs.size) layer.classList.remove('drag');
   if (moved < 10 && e.type === 'pointerup') {   // касание точки на карте показывает её в карточке
     const el = document.elementFromPoint(e.clientX, e.clientY)?.closest('.poi');
-    if (el) { S.selected = +el.dataset.id; refreshMarkers(); render(); }
+    if (el) { S.selected = S.pois.find(q => String(q.id) === el.dataset.id)?.id ?? null; refreshMarkers(); render(); }
   }
 };
 mapview.addEventListener('pointerup', endPtr); mapview.addEventListener('pointercancel', endPtr);
@@ -446,12 +566,12 @@ mapview.addEventListener('wheel', e => {
 
 async function keepAwake() { try { S.wakeLock = await navigator.wakeLock?.request('screen'); } catch { /* не поддерживается */ } }
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && S.phase === 'run') keepAwake(); });
-addEventListener('resize', () => { if (S.phase === 'setup') layoutStage(); else if (S.phase === 'run') { if (S.mode === 'full' && !S.follow) fitFull(); render(); } });
+addEventListener('resize', () => { if (S.phase === 'setup') layoutStage(); else if (S.phase === 'run') { if (S.mode === 'full' && !S.follow && !S.photoMode) fitFull(); render(); } });
 video.addEventListener('loadedmetadata', () => { if (S.phase === 'setup') layoutStage(); });
 if (video.requestVideoFrameCallback) {   // точное время показанного кадра: нужно для сверки с истиной в демо
   const onFrame = (now, m) => { S.frameTime = m.mediaTime; video.requestVideoFrameCallback(onFrame); };
   video.requestVideoFrameCallback(onFrame);
 }
 
-S.debug = { grabMinimap };   // для проверок из консоли
+S.debug = { grabMinimap, photoFromUrl: async url => { const img = new Image(); img.src = url; await img.decode(); return runPhoto(img); } };   // для проверок из консоли
 init();

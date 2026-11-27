@@ -1,0 +1,1910 @@
+[
+ {
+  "id": "L1",
+  "x": 5409.4,
+  "y": 796.8,
+  "type": "hotel",
+  "title": "Vice Regal",
+  "note": "Washington Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L13",
+  "x": 5964.6,
+  "y": 1785.0,
+  "type": "hotel",
+  "title": "Albany Hotel",
+  "note": "Washington Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L16",
+  "x": 5958.1,
+  "y": 2009.2,
+  "type": "hotel",
+  "title": "Y Vice City",
+  "note": "Washington Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L17",
+  "x": 5985.1,
+  "y": 2238.7,
+  "type": "hotel",
+  "title": "Crystal",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L18",
+  "x": 5953.5,
+  "y": 2316.7,
+  "type": "hotel",
+  "title": "Sachem",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L20",
+  "x": 5948.9,
+  "y": 2456.3,
+  "type": "hotel",
+  "title": "The Atoll",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L22",
+  "x": 6029.6,
+  "y": 2564.6,
+  "type": "hotel",
+  "title": "Bayfront Heights",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L25",
+  "x": 6008.2,
+  "y": 2687.9,
+  "type": "hotel",
+  "title": "Dominion Hotel",
+  "note": "Shore Dr, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L32",
+  "x": 5973.5,
+  "y": 2863.0,
+  "type": "hotel",
+  "title": "Hotel Dixon",
+  "note": "Shore Dr, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L35",
+  "x": 5963.0,
+  "y": 2922.5,
+  "type": "hotel",
+  "title": "Paramour Hotel",
+  "note": "Shore Dr, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L36",
+  "x": 5959.5,
+  "y": 2961.0,
+  "type": "hotel",
+  "title": "Ocean View Hotel",
+  "note": "Shore Dr, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L39",
+  "x": 5941.0,
+  "y": 3011.0,
+  "type": "hotel",
+  "title": "Seven Seas Seafood",
+  "note": "Shore Dr, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L40",
+  "x": 5939.0,
+  "y": 3035.5,
+  "type": "hotel",
+  "title": "Boardwalk",
+  "note": "Shore Dr, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L41",
+  "x": 5934.5,
+  "y": 3059.5,
+  "type": "hotel",
+  "title": "Hotel Neptune",
+  "note": "Shore Dr, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L42",
+  "x": 5932.5,
+  "y": 3073.5,
+  "type": "hotel",
+  "title": "Parsons Hotel?",
+  "note": "Shore Dr, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L45",
+  "x": 5931.0,
+  "y": 3153.5,
+  "type": "hotel",
+  "title": "Seashell Hotel",
+  "note": "Shore Dr, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L47",
+  "x": 5928.0,
+  "y": 3188.0,
+  "type": "hotel",
+  "title": "Cortez Hotel",
+  "note": "Shore Dr, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L48",
+  "x": 5923.5,
+  "y": 3201.5,
+  "type": "shop",
+  "title": "Bobby Hurricane's",
+  "note": "Shore Dr, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L49",
+  "x": 5922.0,
+  "y": 3213.5,
+  "type": "hotel",
+  "title": "Atlantis Hotel",
+  "note": "Shore Dr, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L51",
+  "x": 5918.0,
+  "y": 3245.5,
+  "type": "hotel",
+  "title": "Cordelia",
+  "note": "Shore Dr, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L86",
+  "x": 5788.3,
+  "y": 2028.6,
+  "type": "hotel",
+  "title": "Fence",
+  "note": "Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L120",
+  "x": 5356.7,
+  "y": 3711.9,
+  "type": "transit",
+  "title": "Vice Beach Marina",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L127",
+  "x": 3690.8,
+  "y": 5465.8,
+  "type": "leisure",
+  "title": "Tennis Stadium",
+  "note": "Catalan Key",
+  "spoiler": false
+ },
+ {
+  "id": "L166",
+  "x": 3212.5,
+  "y": 775.2,
+  "type": "transit",
+  "title": "Parking Lot",
+  "note": "Belville",
+  "spoiler": false
+ },
+ {
+  "id": "L175",
+  "x": 3519.8,
+  "y": 1883.2,
+  "type": "shop",
+  "title": "Archez",
+  "note": "Stockyard, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L185",
+  "x": 3712.4,
+  "y": 2755.6,
+  "type": "hotel",
+  "title": "The Sumerian",
+  "note": "Delphino Cir, Bayside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L186",
+  "x": 3492.3,
+  "y": 2875.0,
+  "type": "leisure",
+  "title": "Galina Ballet Opera House",
+  "note": "Catalan Blvd, Bayside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L187",
+  "x": 3693.1,
+  "y": 3149.0,
+  "type": "leisure",
+  "title": "Sahara Arena",
+  "note": "Catalan Blvd, Shoreline, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L188",
+  "x": 3488.3,
+  "y": 3060.9,
+  "type": "hotel",
+  "title": "The Celtica Hotel?",
+  "note": "Catalan Blvd, Downtown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L190",
+  "x": 3328.9,
+  "y": 3132.4,
+  "type": "leisure",
+  "title": "NINE1NINE",
+  "note": "Downtown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L195",
+  "x": 2688.0,
+  "y": 2681.1,
+  "type": "food",
+  "title": "Lou's",
+  "note": "Rockridge, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L196",
+  "x": 2394.4,
+  "y": 2561.7,
+  "type": "leisure",
+  "title": "Fleeca Field",
+  "note": "Rockridge, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L197",
+  "x": 2468.5,
+  "y": 2421.9,
+  "type": "transit",
+  "title": "Fleeca Field Metro Station",
+  "note": "Rockridge, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L199",
+  "x": 2614.2,
+  "y": 2859.8,
+  "type": "sight",
+  "title": "Rockridge Neighborhood Service Center",
+  "note": "Rockridge, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L202",
+  "x": 3113.7,
+  "y": 3286.7,
+  "type": "sight",
+  "title": "Harrelson Building",
+  "note": "Downtown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L204",
+  "x": 3255.6,
+  "y": 3342.0,
+  "type": "sight",
+  "title": "Kensinger Tower",
+  "note": "Downtown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L212",
+  "x": 2868.1,
+  "y": 3639.2,
+  "type": "sight",
+  "title": "El Gabeto Center",
+  "note": "Little Cuba, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L216",
+  "x": 1491.9,
+  "y": 3692.2,
+  "type": "transit",
+  "title": "Autograph Hangar 2",
+  "note": "Vice City International Airport",
+  "spoiler": false
+ },
+ {
+  "id": "L218",
+  "x": 2444.6,
+  "y": 3891.0,
+  "type": "transit",
+  "title": "VCIA Metro Mover Station",
+  "note": "Salton, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L233",
+  "x": 3242.1,
+  "y": 4857.9,
+  "type": "hotel",
+  "title": "Penny Haus",
+  "note": "Tequesta, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L236",
+  "x": 3162.1,
+  "y": 4898.1,
+  "type": "hotel",
+  "title": "One Stracathro Tower",
+  "note": "Catalan Blvd, Tequesta, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L324",
+  "x": 5795.9,
+  "y": 1986.6,
+  "type": "hotel",
+  "title": "Hotel Valetta",
+  "note": "Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L345",
+  "x": 1627.0,
+  "y": 4374.3,
+  "type": "transit",
+  "title": "VCIA Control Tower",
+  "note": "Vice City International Airport",
+  "spoiler": false
+ },
+ {
+  "id": "L346",
+  "x": 64.2,
+  "y": 3960.5,
+  "type": "sight",
+  "title": "Three Toe Lake",
+  "note": "Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L373",
+  "x": 6168.0,
+  "y": 3667.0,
+  "type": "leisure",
+  "title": "Lifeguard Tower",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L374",
+  "x": 6163.1,
+  "y": 3577.4,
+  "type": "leisure",
+  "title": "Lifeguard Tower",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L375",
+  "x": 6135.7,
+  "y": 3428.6,
+  "type": "leisure",
+  "title": "Lifeguard Tower",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L376",
+  "x": 6158.6,
+  "y": 3254.1,
+  "type": "leisure",
+  "title": "Lifeguard Tower",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L377",
+  "x": 6170.1,
+  "y": 3123.2,
+  "type": "leisure",
+  "title": "Lifeguard Tower",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L378",
+  "x": 6184.7,
+  "y": 2994.2,
+  "type": "leisure",
+  "title": "Lifeguard Tower",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L379",
+  "x": 6199.5,
+  "y": 2846.3,
+  "type": "leisure",
+  "title": "Lifeguard Tower",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L380",
+  "x": 6219.2,
+  "y": 2718.6,
+  "type": "leisure",
+  "title": "Lifeguard Tower",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L381",
+  "x": 6232.6,
+  "y": 2602.0,
+  "type": "leisure",
+  "title": "Lifeguard Tower",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L408",
+  "x": 3058.2,
+  "y": 2055.0,
+  "type": "shop",
+  "title": "Jeudy's Food Depot",
+  "note": "La Perle, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L409",
+  "x": 3047.8,
+  "y": 2045.8,
+  "type": "shop",
+  "title": "Conch King",
+  "note": "La Perle, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L419",
+  "x": 2945.7,
+  "y": 2434.3,
+  "type": "shop",
+  "title": "Simon's Tires",
+  "note": "La Perle, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L422",
+  "x": 3893.5,
+  "y": 2532.9,
+  "type": "transit",
+  "title": "Rivo Bridge",
+  "note": "Rialto Islands",
+  "spoiler": false
+ },
+ {
+  "id": "L432",
+  "x": 4284.7,
+  "y": 3353.5,
+  "type": "transit",
+  "title": "Port Vice City Tunnel",
+  "note": "Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L437",
+  "x": 3547.8,
+  "y": 2922.0,
+  "type": "sight",
+  "title": "Palaestra Tower",
+  "note": "Catalan Blvd, Bayside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L438",
+  "x": 4023.7,
+  "y": 3472.0,
+  "type": "leisure",
+  "title": "Dock Ring",
+  "note": "Shoreline, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L440",
+  "x": 3893.9,
+  "y": 3609.6,
+  "type": "leisure",
+  "title": "V-Rock Café",
+  "note": "Shoreline, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L441",
+  "x": 3442.8,
+  "y": 2831.4,
+  "type": "transit",
+  "title": "Vice City Arts Center Metro Station",
+  "note": "Downtown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L456",
+  "x": 232.8,
+  "y": 4062.0,
+  "type": "sight",
+  "title": "Vice City Sign",
+  "note": "Vice City International Airport",
+  "spoiler": false
+ },
+ {
+  "id": "L486",
+  "x": 3757.5,
+  "y": 2913.0,
+  "type": "leisure",
+  "title": "Panos Plaza",
+  "note": "Bayside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L533",
+  "x": 4577.8,
+  "y": 1113.3,
+  "type": "leisure",
+  "title": "Leaf Links Golf Club",
+  "note": "Vice-Dale County",
+  "spoiler": false
+ },
+ {
+  "id": "L540",
+  "x": 3540.2,
+  "y": 4697.4,
+  "type": "transit",
+  "title": "Tequesta Retreat Bridge",
+  "note": "Tequesta Retreat, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L551",
+  "x": 3311.1,
+  "y": 2821.8,
+  "type": "sight",
+  "title": "J.C. Anglin United States Courthouse",
+  "note": "Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L556",
+  "x": 3225.7,
+  "y": 3138.3,
+  "type": "leisure",
+  "title": "The Vault",
+  "note": "Downtown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L564",
+  "x": 5225.8,
+  "y": 2160.4,
+  "type": "transit",
+  "title": "Bridge",
+  "note": "Rialto Islands",
+  "spoiler": false
+ },
+ {
+  "id": "L565",
+  "x": 2246.2,
+  "y": 4106.5,
+  "type": "hotel",
+  "title": "X Hotel",
+  "note": "Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L569",
+  "x": 3728.2,
+  "y": 4100.7,
+  "type": "hotel",
+  "title": "Clarissa Hotel",
+  "note": "Downtown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L602",
+  "x": 4114.4,
+  "y": 2466.5,
+  "type": "transit",
+  "title": "Vice Pass",
+  "note": "Rialto Islands",
+  "spoiler": false
+ },
+ {
+  "id": "L608",
+  "x": 2694.9,
+  "y": 2606.1,
+  "type": "shop",
+  "title": "Xero Gas Station",
+  "note": "Rockridge, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L611",
+  "x": 5910.3,
+  "y": 2943.5,
+  "type": "hotel",
+  "title": "Kington Hotel",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L613",
+  "x": 3300.8,
+  "y": 2608.5,
+  "type": "transit",
+  "title": "Metro Station",
+  "note": "Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L630",
+  "x": 3647.7,
+  "y": 4902.5,
+  "type": "sight",
+  "title": "Tequesta Retreat Park",
+  "note": "Tequesta Retreat, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L634",
+  "x": 2734.4,
+  "y": 3824.0,
+  "type": "sight",
+  "title": "Vice River",
+  "note": "Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L644",
+  "x": 6030.1,
+  "y": 2589.7,
+  "type": "food",
+  "title": "The Amalfi",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L652",
+  "x": 3324.9,
+  "y": 5291.1,
+  "type": "transit",
+  "title": "Bridge",
+  "note": "Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L654",
+  "x": 4828.5,
+  "y": 4578.1,
+  "type": "transit",
+  "title": "Bridge",
+  "note": "Vice-Dale County",
+  "spoiler": false
+ },
+ {
+  "id": "L677",
+  "x": 2643.2,
+  "y": 2815.5,
+  "type": "shop",
+  "title": "Cipher Mall",
+  "note": "Rockridge, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L687",
+  "x": 3525.2,
+  "y": 3697.0,
+  "type": "hotel",
+  "title": "Chariot Empire Suites",
+  "note": "Catalan Blvd, Downtown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L708",
+  "x": 1395.7,
+  "y": 3674.8,
+  "type": "transit",
+  "title": "Autograph Hangar 1",
+  "note": "Vice City International Airport",
+  "spoiler": false
+ },
+ {
+  "id": "L714",
+  "x": 4131.1,
+  "y": 2428.7,
+  "type": "leisure",
+  "title": "Tennis Court",
+  "note": "Rialto Islands",
+  "spoiler": false
+ },
+ {
+  "id": "L720",
+  "x": 3480.7,
+  "y": 3604.4,
+  "type": "transit",
+  "title": "Metro Station",
+  "note": "Downtown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L734",
+  "x": 6558.8,
+  "y": 1505.2,
+  "type": "leisure",
+  "title": "Submerged Tank",
+  "note": "Vice-Dale County",
+  "spoiler": false
+ },
+ {
+  "id": "L748",
+  "x": 2988.9,
+  "y": 2976.7,
+  "type": "sight",
+  "title": "Lake",
+  "note": "Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L824",
+  "x": 3676.1,
+  "y": 3752.4,
+  "type": "sight",
+  "title": "Shoreline Park?",
+  "note": "Downtown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L843",
+  "x": 4362.8,
+  "y": 614.9,
+  "type": "transit",
+  "title": "Bridge",
+  "note": "Vice-Dale County",
+  "spoiler": false
+ },
+ {
+  "id": "L907",
+  "x": 3041.5,
+  "y": 5787.7,
+  "type": "sight",
+  "title": "Vice City Hall",
+  "note": "Peacock Bay, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L914",
+  "x": 1087.6,
+  "y": 6333.2,
+  "type": "sight",
+  "title": "Prison Tower (1)",
+  "note": "Prison, Hamlet",
+  "spoiler": false
+ },
+ {
+  "id": "L915",
+  "x": 1251.4,
+  "y": 6358.0,
+  "type": "sight",
+  "title": "Prison Tower (2)",
+  "note": "Prison, Hamlet",
+  "spoiler": false
+ },
+ {
+  "id": "L916",
+  "x": 1388.1,
+  "y": 6437.3,
+  "type": "sight",
+  "title": "Prison Tower (3)",
+  "note": "Prison, Hamlet",
+  "spoiler": false
+ },
+ {
+  "id": "L917",
+  "x": 1340.9,
+  "y": 6512.2,
+  "type": "sight",
+  "title": "Prison Tower (4)",
+  "note": "Prison, Hamlet",
+  "spoiler": false
+ },
+ {
+  "id": "L918",
+  "x": 1078.4,
+  "y": 6531.5,
+  "type": "sight",
+  "title": "Prison Tower (5)",
+  "note": "Prison, Hamlet",
+  "spoiler": false
+ },
+ {
+  "id": "L919",
+  "x": 986.5,
+  "y": 6427.1,
+  "type": "sight",
+  "title": "Prison Tower (6)",
+  "note": "Prison, Hamlet",
+  "spoiler": false
+ },
+ {
+  "id": "L982",
+  "x": 3097.7,
+  "y": 4660.0,
+  "type": "food",
+  "title": "Cafe Carraway",
+  "note": "SW 4th Ave, Tequesta, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1015",
+  "x": 6021.7,
+  "y": 3211.9,
+  "type": "leisure",
+  "title": "Muscle Sands",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1061",
+  "x": 3501.7,
+  "y": 4280.0,
+  "type": "transit",
+  "title": "Catalan Boulevard Bridge",
+  "note": "Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1074",
+  "x": 2188.0,
+  "y": 6062.6,
+  "type": "shop",
+  "title": "Phil's Ammu-Nation",
+  "note": "Leonida",
+  "spoiler": false
+ },
+ {
+  "id": "L1092",
+  "x": 2424.5,
+  "y": 4257.5,
+  "type": "transit",
+  "title": "Bus Parking Lot",
+  "note": "Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1098",
+  "x": 2623.1,
+  "y": 2817.6,
+  "type": "food",
+  "title": "Bite",
+  "note": "Rockridge, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1099",
+  "x": 2621.3,
+  "y": 2804.4,
+  "type": "shop",
+  "title": "Bump & Grind",
+  "note": "Rockridge, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1100",
+  "x": 2629.1,
+  "y": 2797.6,
+  "type": "shop",
+  "title": "Harmon & Fenix",
+  "note": "Rockridge, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1101",
+  "x": 2640.3,
+  "y": 2798.4,
+  "type": "shop",
+  "title": "Core Software",
+  "note": "Rockridge, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1102",
+  "x": 2652.6,
+  "y": 2798.6,
+  "type": "shop",
+  "title": "ShoreFront",
+  "note": "Rockridge, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1108",
+  "x": 3531.1,
+  "y": 1890.4,
+  "type": "shop",
+  "title": "Marco Wholesale Footwear",
+  "note": "Stockyard, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1113",
+  "x": 1573.9,
+  "y": 3711.4,
+  "type": "transit",
+  "title": "Autograph Flight Support Building",
+  "note": "Vice City International Airport",
+  "spoiler": false
+ },
+ {
+  "id": "L1257",
+  "x": 3101.5,
+  "y": 4813.7,
+  "type": "transit",
+  "title": "Tequesta Station",
+  "note": "Tequesta, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1293",
+  "x": 5494.9,
+  "y": 3199.8,
+  "type": "sight",
+  "title": "Vice Beach Police Department",
+  "note": "Shorefront Ave, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1311",
+  "x": 5635.0,
+  "y": 2047.2,
+  "type": "sight",
+  "title": "Canal",
+  "note": "Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1313",
+  "x": 5055.8,
+  "y": 1157.1,
+  "type": "transit",
+  "title": "Bridge",
+  "note": "Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1322",
+  "x": 4708.9,
+  "y": 1045.2,
+  "type": "sight",
+  "title": "Lake",
+  "note": "Leaf Links, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1339",
+  "x": 4677.2,
+  "y": 3413.9,
+  "type": "transit",
+  "title": "Star Island Bridge",
+  "note": "Vice-Dale County",
+  "spoiler": false
+ },
+ {
+  "id": "L1353",
+  "x": 2306.1,
+  "y": 4414.1,
+  "type": "hotel",
+  "title": "Banner Hotel & Spa",
+  "note": "Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1362",
+  "x": 3601.6,
+  "y": 6451.2,
+  "type": "sight",
+  "title": "Lighthouse",
+  "note": "Catalan Key",
+  "spoiler": false
+ },
+ {
+  "id": "L1382",
+  "x": 2347.8,
+  "y": 5973.1,
+  "type": "food",
+  "title": "Peewees",
+  "note": "Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1412",
+  "x": 5866.2,
+  "y": 1973.5,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Washington Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1413",
+  "x": 5858.1,
+  "y": 2162.5,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1414",
+  "x": 5869.2,
+  "y": 2048.5,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1415",
+  "x": 5732.0,
+  "y": 3216.6,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1416",
+  "x": 3593.4,
+  "y": 3077.5,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Catalan Blvd, Shoreline, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1417",
+  "x": 2674.1,
+  "y": 2851.8,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Rockridge, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1418",
+  "x": 2638.9,
+  "y": 2896.8,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Rockridge, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1419",
+  "x": 3642.1,
+  "y": 1815.4,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Stockyard, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1469",
+  "x": 5503.1,
+  "y": 3680.9,
+  "type": "leisure",
+  "title": "Tennis Court",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1470",
+  "x": 5505.7,
+  "y": 3785.6,
+  "type": "leisure",
+  "title": "Pool",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1482",
+  "x": 3621.4,
+  "y": 1760.4,
+  "type": "shop",
+  "title": "Electric Fang Tattoo",
+  "note": "Stockyard, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1488",
+  "x": 3671.3,
+  "y": 1833.9,
+  "type": "shop",
+  "title": "Stock 305",
+  "note": "Stockyard, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1506",
+  "x": 3692.2,
+  "y": 2606.2,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Rialto Cswy, Bayside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1555",
+  "x": 5463.0,
+  "y": 1835.6,
+  "type": "shop",
+  "title": "Hobbs Milford",
+  "note": "SW 4th St, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1587",
+  "x": 2283.5,
+  "y": 5889.4,
+  "type": "sight",
+  "title": "Hospital",
+  "note": "Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1589",
+  "x": 2326.7,
+  "y": 5788.1,
+  "type": "shop",
+  "title": "Gas Station",
+  "note": "Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1598",
+  "x": 2171.3,
+  "y": 6043.2,
+  "type": "shop",
+  "title": "Gator Plaza",
+  "note": "Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1603",
+  "x": 1800.0,
+  "y": 2898.2,
+  "type": "transit",
+  "title": "Railyard",
+  "note": "Balsero, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1625",
+  "x": 2757.9,
+  "y": 3895.4,
+  "type": "transit",
+  "title": "Bridge",
+  "note": "Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1654",
+  "x": 3036.8,
+  "y": 4143.6,
+  "type": "transit",
+  "title": "Parking Garage",
+  "note": "Downtown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1745",
+  "x": 2237.1,
+  "y": 6114.4,
+  "type": "food",
+  "title": "Chacey's",
+  "note": "El Joven Blvd, Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1752",
+  "x": 1984.8,
+  "y": 6173.8,
+  "type": "transit",
+  "title": "Lock",
+  "note": "Vice-Dale County",
+  "spoiler": false
+ },
+ {
+  "id": "L1753",
+  "x": 2244.6,
+  "y": 5320.2,
+  "type": "transit",
+  "title": "Lock",
+  "note": "Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1781",
+  "x": 3619.0,
+  "y": 1930.9,
+  "type": "shop",
+  "title": "Vice Vinyl",
+  "note": "Stockyard, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1786",
+  "x": 5507.3,
+  "y": 1799.0,
+  "type": "shop",
+  "title": "Fleeca",
+  "note": "SW 4th St, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1789",
+  "x": 5494.7,
+  "y": 1838.3,
+  "type": "shop",
+  "title": "Eye & Dry",
+  "note": "SW 4th St, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1790",
+  "x": 5511.3,
+  "y": 1840.7,
+  "type": "shop",
+  "title": "Diamond Dawgs",
+  "note": "SW 4th St, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1860",
+  "x": 773.3,
+  "y": 5731.5,
+  "type": "transit",
+  "title": "Train Bridge",
+  "note": "Leonida",
+  "spoiler": false
+ },
+ {
+  "id": "L1861",
+  "x": 1773.7,
+  "y": 5483.2,
+  "type": "transit",
+  "title": "Train Bridge",
+  "note": "Vice-Dale County",
+  "spoiler": false
+ },
+ {
+  "id": "L1862",
+  "x": 6040.7,
+  "y": 2163.8,
+  "type": "sight",
+  "title": "Public Restrooms",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1870",
+  "x": 5495.2,
+  "y": 1856.4,
+  "type": "shop",
+  "title": "Papasco's",
+  "note": "Vickery Dr, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L1872",
+  "x": 3581.3,
+  "y": 2579.5,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Rialto Cswy, Bayside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1932",
+  "x": 3629.7,
+  "y": 2050.6,
+  "type": "shop",
+  "title": "Perkins Deli",
+  "note": "Catalan Blvd, Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1933",
+  "x": 3636.4,
+  "y": 2039.4,
+  "type": "shop",
+  "title": "Josefina",
+  "note": "Crosstown, Catalan Blvd, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L1934",
+  "x": 3641.5,
+  "y": 2028.6,
+  "type": "shop",
+  "title": "Bruiser? Skate Shop",
+  "note": "Catalan Blvd, Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2030",
+  "x": 3826.9,
+  "y": 491.2,
+  "type": "leisure",
+  "title": "Vice City Casino",
+  "note": "Vice-Dale County",
+  "spoiler": false
+ },
+ {
+  "id": "L2150",
+  "x": 5694.6,
+  "y": 3555.4,
+  "type": "shop",
+  "title": "Fleeca",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L2151",
+  "x": 5600.8,
+  "y": 3057.0,
+  "type": "shop",
+  "title": "Frills & Fancy",
+  "note": "Shorefront Ave, Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L2198",
+  "x": 1226.4,
+  "y": 1906.0,
+  "type": "transit",
+  "title": "Train Bridge",
+  "note": "Leonida",
+  "spoiler": false
+ },
+ {
+  "id": "L2264",
+  "x": 3572.8,
+  "y": 1740.6,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Stockyard, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2265",
+  "x": 3670.8,
+  "y": 1351.2,
+  "type": "shop",
+  "title": "Fufu",
+  "note": "Vice Decor District, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2313",
+  "x": 2456.7,
+  "y": 3489.4,
+  "type": "sight",
+  "title": "City of Vice Fire Rescue Station",
+  "note": "Salton, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2360",
+  "x": 2314.8,
+  "y": 5699.9,
+  "type": "shop",
+  "title": "Mami's Grocery Market",
+  "note": "El Joven Blvd, Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2361",
+  "x": 2320.3,
+  "y": 5692.4,
+  "type": "shop",
+  "title": "A1 Fashions",
+  "note": "El Joven Blvd, Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2375",
+  "x": 3134.4,
+  "y": 2624.7,
+  "type": "shop",
+  "title": "Rideout Customs",
+  "note": "Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2444",
+  "x": 2206.1,
+  "y": 4106.9,
+  "type": "food",
+  "title": "Gator's Piano Bar?",
+  "note": "Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2446",
+  "x": 2335.6,
+  "y": 4018.0,
+  "type": "transit",
+  "title": "Covered Parking Lot",
+  "note": "Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2471",
+  "x": 2077.5,
+  "y": 3570.3,
+  "type": "hotel",
+  "title": "Break Inn",
+  "note": "Salton, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2473",
+  "x": 2591.9,
+  "y": 3545.6,
+  "type": "transit",
+  "title": "Bridge",
+  "note": "Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2492",
+  "x": 3187.3,
+  "y": 4433.8,
+  "type": "transit",
+  "title": "Metro Station",
+  "note": "Tequesta, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2503",
+  "x": 746.5,
+  "y": 5232.2,
+  "type": "sight",
+  "title": "Lake",
+  "note": "Mariana County",
+  "spoiler": false
+ },
+ {
+  "id": "L2517",
+  "x": 3673.7,
+  "y": 1384.6,
+  "type": "shop",
+  "title": "R",
+  "note": "Vice Decor District, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2525",
+  "x": 3076.5,
+  "y": 5957.0,
+  "type": "transit",
+  "title": "Marina",
+  "note": "Peacock Bay, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2761",
+  "x": 4257.7,
+  "y": 5125.7,
+  "type": "transit",
+  "title": "Bridge",
+  "note": "Vice-Dale County",
+  "spoiler": false
+ },
+ {
+  "id": "L2762",
+  "x": 3744.7,
+  "y": 5638.9,
+  "type": "leisure",
+  "title": "Tennis Court",
+  "note": "Catalan Key",
+  "spoiler": false
+ },
+ {
+  "id": "L2763",
+  "x": 3591.6,
+  "y": 5562.7,
+  "type": "leisure",
+  "title": "Tennis Court",
+  "note": "Catalan Key",
+  "spoiler": false
+ },
+ {
+  "id": "L2764",
+  "x": 3619.4,
+  "y": 5623.2,
+  "type": "leisure",
+  "title": "Tennis Court",
+  "note": "Catalan Key",
+  "spoiler": false
+ },
+ {
+  "id": "L2894",
+  "x": 6162.1,
+  "y": 3630.3,
+  "type": "food",
+  "title": "Tamarro",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L2911",
+  "x": 3150.3,
+  "y": 4011.3,
+  "type": "transit",
+  "title": "Metro Station",
+  "note": "Downtown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L2975",
+  "x": 2862.9,
+  "y": 1949.1,
+  "type": "sight",
+  "title": "\"La Perle River\"",
+  "note": "Leonida",
+  "spoiler": false
+ },
+ {
+  "id": "L3106",
+  "x": 2826.3,
+  "y": 3639.9,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Little Cuba",
+  "spoiler": false
+ },
+ {
+  "id": "L3107",
+  "x": 2440.1,
+  "y": 3403.1,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Westbrook Dr, Salton, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3108",
+  "x": 3941.0,
+  "y": 1454.3,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Vice Decor District, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3109",
+  "x": 3890.2,
+  "y": 1599.2,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Vice Decor District, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3110",
+  "x": 3453.1,
+  "y": 2625.2,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Catalan Blvd, Crosstown",
+  "spoiler": false
+ },
+ {
+  "id": "L3111",
+  "x": 4700.4,
+  "y": 3548.6,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Admiral Cswy, Ferry Island",
+  "spoiler": false
+ },
+ {
+  "id": "L3112",
+  "x": 5749.3,
+  "y": 2097.7,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Ocean Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L3113",
+  "x": 2183.0,
+  "y": 5905.7,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Cicada Ave, Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3114",
+  "x": 2241.1,
+  "y": 5916.0,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Cicada Ave, Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3116",
+  "x": 2219.5,
+  "y": 5388.6,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Calderone Ave, Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3117",
+  "x": 2166.2,
+  "y": 5458.1,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Calderone Ave, Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3119",
+  "x": 3355.3,
+  "y": 2363.0,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Mirimar Dr, Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3120",
+  "x": 3427.9,
+  "y": 2424.0,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Mirimar Dr, Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3121",
+  "x": 3441.1,
+  "y": 2895.3,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3122",
+  "x": 3541.2,
+  "y": 1964.3,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3123",
+  "x": 3521.4,
+  "y": 2024.0,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3124",
+  "x": 3375.2,
+  "y": 2399.8,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Mirimar Dr, Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3125",
+  "x": 3472.9,
+  "y": 2670.5,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Catalan Blvd, Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3133",
+  "x": 2131.2,
+  "y": 5511.6,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Calderone Ave, Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3145",
+  "x": 2746.6,
+  "y": 5106.0,
+  "type": "transit",
+  "title": "Metro Station",
+  "note": "Peacock Bay, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3147",
+  "x": 2468.7,
+  "y": 3838.9,
+  "type": "transit",
+  "title": "VCIA Metro Station",
+  "note": "Salton, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3148",
+  "x": 1633.1,
+  "y": 3423.9,
+  "type": "transit",
+  "title": "Metro Mover Station",
+  "note": "Salton, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3166",
+  "x": 2300.8,
+  "y": 5771.1,
+  "type": "shop",
+  "title": "Gas Station",
+  "note": "Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3189",
+  "x": 5934.2,
+  "y": 1995.6,
+  "type": "leisure",
+  "title": "Tennis Court",
+  "note": "Y Vice Beach, Washington Beach, Vice Beach",
+  "spoiler": false
+ },
+ {
+  "id": "L3205",
+  "x": 3356.5,
+  "y": 2603.5,
+  "type": "transit",
+  "title": "Metro Station",
+  "note": "Crosstown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3217",
+  "x": 3386.6,
+  "y": 4478.9,
+  "type": "sight",
+  "title": "Fenestra Plaza",
+  "note": "Tequesta, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3228",
+  "x": 3484.7,
+  "y": 4070.2,
+  "type": "food",
+  "title": "Mammacita's",
+  "note": "Downtown, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3245",
+  "x": 2077.0,
+  "y": 2869.7,
+  "type": "transit",
+  "title": "Docks",
+  "note": "Balsero, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3246",
+  "x": 3371.2,
+  "y": 4460.7,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Tequesta",
+  "spoiler": false
+ },
+ {
+  "id": "L3281",
+  "x": 3034.6,
+  "y": 2032.6,
+  "type": "food",
+  "title": "Conch King",
+  "note": "La Perle, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3288",
+  "x": 3187.6,
+  "y": 769.4,
+  "type": "shop",
+  "title": "Arrow Gas Station",
+  "note": "Belville",
+  "spoiler": false
+ },
+ {
+  "id": "L3298",
+  "x": 2959.9,
+  "y": 4673.5,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "SW 4th St, Tequesta",
+  "spoiler": false
+ },
+ {
+  "id": "L3299",
+  "x": 2248.3,
+  "y": 5394.5,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Calderone Ave, Southside, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3312",
+  "x": 5741.4,
+  "y": 2223.3,
+  "type": "transit",
+  "title": "Bus Stop",
+  "note": "Thompson Ave, Ocean Beach, Vice City",
+  "spoiler": false
+ },
+ {
+  "id": "L3402",
+  "x": 4484.5,
+  "y": 4112.0,
+  "type": "leisure",
+  "title": "Tennis Courts",
+  "note": "Port Vice City",
+  "spoiler": false
+ }
+]

@@ -75,6 +75,8 @@ button:disabled { opacity: .4; }
 #tools { position: absolute; right: 12px; top: 12px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; max-width: 72%; }
 #tools button { background: rgba(17, 25, 54, .9); min-width: 48px; min-height: 46px; padding: 0 12px; font-size: 15px; }
 #tools button.on { outline: 2px solid var(--accent); }
+#tools button.primary { background: var(--accent); color: #1a0010; }
+#main.photo #tools { left: 12px; top: 66px; max-width: none; justify-content: flex-start; }
 
 #card { flex: 3 1 0; min-height: 96px; display: flex; align-items: center; gap: 16px; padding: 10px 16px; background: var(--panel); }
 #card .ico { width: 64px; height: 64px; border-radius: 50%; background: var(--panel2); display: grid; place-items: center; flex: none; }
@@ -87,6 +89,29 @@ button:disabled { opacity: .4; }
 #card .btns { display: flex; flex-direction: column; gap: 8px; flex: none; }
 #card .btns button { min-height: 44px; font-size: 16px; }
 #card.empty .dist, #card.empty .btns, #card.empty .ico { display: none; }
+
+/* Режим «фото карты»: список того, что рядом */
+#nearby { flex: 4 1 0; min-height: 120px; overflow-y: auto; background: var(--panel); touch-action: pan-y; padding: 6px 10px 12px; }
+#nearby h3 { margin: 6px 6px 4px; font-size: 15px; color: var(--muted); font-weight: 600; }
+.near { display: flex; align-items: center; gap: 12px; padding: 8px 6px; border-radius: 12px; }
+.near.sel { background: var(--panel2); }
+.near .ico { width: 40px; height: 40px; border-radius: 50%; background: var(--panel2); display: grid; place-items: center; flex: none; }
+.near.sel .ico { background: var(--accent); }
+.near .ico svg { width: 24px; height: 24px; fill: var(--text); }
+.near .body { flex: 1; min-width: 0; }
+.near .t { font-size: 18px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.near .n { font-size: 14px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.near .d { font-size: 20px; font-weight: 800; color: var(--accent); text-align: right; flex: none; line-height: 1.1; }
+.near .d small { display: block; font-size: 13px; color: var(--muted); font-weight: 600; }
+.near button { min-height: 40px; padding: 0 12px; flex: none; font-size: 14px; }
+#me.dot svg { display: none; }
+#me.dot::after { content: ""; position: absolute; left: -16px; top: -16px; width: 32px; height: 32px; border-radius: 50%; background: var(--accent);
+  border: 4px solid #fff; box-sizing: border-box; box-shadow: 0 0 0 10px rgba(255, 61, 154, .28), 0 0 14px var(--accent); }
+#busy .box, #sheet-msg .box { width: auto; max-width: 520px; text-align: center; font-size: 19px; line-height: 1.4; }
+#sheet-msg button { margin-top: 14px; }
+#fixwrap { position: relative; margin-top: 8px; }
+#fixcanvas { display: block; width: 100%; border-radius: 12px; touch-action: none; }
+.sheet p { margin: 0; color: var(--muted); font-size: 16px; }
 
 /* Шторки */
 .sheet { position: fixed; inset: 0; background: rgba(4, 6, 16, .7); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 5; }
@@ -126,12 +151,15 @@ button:disabled { opacity: .4; }
 
 <section id="welcome" class="screen">
   <h1>Штур<span>ман</span></h1>
-  <p>Поставь телефон на подставку камерой к телевизору. Приложение само поймёт, где ты на карте, и подскажет, что рядом.</p>
+  <p id="intro">Поставь телефон на подставку камерой к телевизору. Приложение само поймёт, где ты на карте, и подскажет, что рядом.</p>
   <div id="loadmsg">Загрузка распознавания…</div>
   <div class="row">
     <button id="btn-camera" class="primary" disabled>Включить камеру</button>
     <button id="btn-demo" disabled hidden>Демо без телевизора</button>
+    <button id="btn-gallery" disabled hidden>Выбрать готовое фото</button>
   </div>
+  <input type="file" id="file-cam" accept="image/*" capture="environment" hidden>
+  <input type="file" id="file-pick" accept="image/*" hidden>
   <p class="legal" id="credit"></p>
   <p class="legal">Рабочее название. Неофициальное приложение. Не связано с Rockstar Games и Take-Two Interactive и не одобрено ими. Кадры с камеры обрабатываются на телефоне и никуда не отправляются.</p>
 </section>
@@ -158,6 +186,8 @@ button:disabled { opacity: .4; }
     </div>
     <div id="status"><i></i><span>Ищу…</span></div>
     <div id="tools">
+      <button id="btn-photo" class="primary" hidden>Новое фото</button>
+      <button id="btn-fix" hidden>Не там?</button>
       <button id="btn-mode">Вся карта</button>
       <button id="btn-me" hidden>Ко мне</button>
       <button id="btn-filters">Фильтры</button>
@@ -172,7 +202,21 @@ button:disabled { opacity: .4; }
     <div class="dist"><span id="card-dist"></span><small id="card-dir"></small></div>
     <div class="btns"><button id="btn-found" class="primary">Найдено</button><button id="btn-hide">Скрыть</button></div>
   </div>
+  <div id="nearby" hidden></div>
 </section>
+
+<div id="busy" class="sheet" hidden><div class="box">Распознаю карту…</div></div>
+
+<div id="sheet-msg" class="sheet" hidden><div class="box">
+  <div id="msg-text"></div>
+  <button data-close class="primary">Понятно</button>
+</div></div>
+
+<div id="sheet-fix" class="sheet" hidden><div class="box">
+  <h2>Где ты на фото? <button data-close>Готово</button></h2>
+  <p>Коснись своего значка на фото — я поставлю тебя точно туда.</p>
+  <div id="fixwrap"><canvas id="fixcanvas"></canvas></div>
+</div></div>
 
 <div id="sheet-filters" class="sheet" hidden><div class="box">
   <h2>Фильтры <button data-close>Готово</button></h2>
@@ -186,6 +230,6 @@ button:disabled { opacity: .4; }
   <div class="sectors" id="progress-sectors"></div>
 </div></div>
 
-<script type="module" src="app.js"></script>
+<script type="module" src="app.js?v=3"></script>
 </body>
 </html>
